@@ -1,0 +1,15 @@
+version: '3'
+services:
+  ubuntu_node:
+    image: ubuntu:18.04
+    container_name: ubuntu_node_container
+    tty: true
+    stdin_open: true
+    environment:
+      - NODE_VERSION=12.11.x
+    volumes:
+      - ./:/app  # Mount a local directory into the container (change './app' to your desired local directory)
+    ports:
+      - "3000:3000"  # Example port forwarding for Node.js app, adjust as needed
+
+    command: /bin/bash -c "apt-get update && apt-get install -y curl && curl -sL https://deb.nodesource.com/setup_12.x | bash - && apt-get install -y nodejs && node --version && npm --version && /bin/bash"
