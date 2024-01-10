@@ -1,6 +1,6 @@
 export default (array, city) => {
   if (!Array.isArray(array)) {
-    return []
+    return [];
   }
-  return array.filter((obj) => obj.location === city)
+  return array.filter((obj) => obj.location === city);
 };
